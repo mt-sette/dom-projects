@@ -22,20 +22,49 @@
                         <h2>Backlog</h2>
                     </header>
                     <main>
-                        <div class="card backlogContainer">
-                            <ul id="backlog-list">
-                                <li>Task 1</li>
+                        <div class="card">
+                            <ul id="backlog-list" class="list">
+                                <li class="list-item">Task 1</li>
                             </ul>
                         </div>
                     </main>
                     <footer>
-                        <form id="backlogForm">
-                            <input
-                                type="text"
-                                name="itemNane"
-                                id="backlogItemInput"
-                                placeholder="Add new item"
-                            />
+                        <form data-target-list="backlog-list" id="backlogForm">
+                            <input type="text" placeholder="Add new item" />
+                        </form>
+                    </footer>
+                </section>
+                <section>
+                    <header>
+                        <h2>Doing</h2>
+                    </header>
+                    <main>
+                        <div class="card">
+                            <ul id="doing-list" class="list">
+                                <li class="list-item list-item">Task 1</li>
+                            </ul>
+                        </div>
+                    </main>
+                    <footer>
+                        <form data-target-list="doing-list" id="backlogForm">
+                            <input type="text" placeholder="Add new item" />
+                        </form>
+                    </footer>
+                </section>
+                <section>
+                    <header>
+                        <h2>Done</h2>
+                    </header>
+                    <main>
+                        <div class="card">
+                            <ul id="done-list" class="list">
+                                <li class="list-item">Task 1</li>
+                            </ul>
+                        </div>
+                    </main>
+                    <footer>
+                        <form data-target-list="done-list" id="backlogForm">
+                            <input type="text" placeholder="Add new item" />
                         </form>
                     </footer>
                 </section>

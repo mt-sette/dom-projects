@@ -1,31 +1,73 @@
-class ListItem {
-    constructor(text) {
-        this.text = text;
-    }
+import ListItem from './util/ListItem.js';
 
-    createItem() {
-        const element = document.createElement('li');
-        element.textContent = this.text;
-        return element;
-    }
+function makeItemDraggable(item) {
+    item.addEventListener('dragstart', handleDragStart);
+    item.addEventListener('dragend', handleDragEnd);
 }
 
-const backlogForm = document.querySelector('#backlogForm');
-const backlogList = document.querySelector('#backlog-list');
+document.querySelectorAll('.list-item').forEach(makeItemDraggable);
 
-backlogForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    const input = document.querySelector('#backlogItemInput');
-    const description = input.value;
-    const item = new ListItem(description).createItem();
+document.querySelectorAll('form').forEach((form) => {
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const input = this.querySelector('input');
+        const description = input.value;
+        const item = new ListItem(description).createItem();
 
-    backlogList.appendChild(item);
-    input.value = '';
+        // Make the new item draggable
+        makeItemDraggable(item);
+        const targetListId = this.getAttribute('data-target-list');
+        const targetList = document.querySelector(`#${targetListId}`);
+
+        targetList.appendChild(item);
+        input.value = '';
+    });
 });
 
-backlogList.addEventListener('click', function (event) {
-    console.log(event.target);
-    const target = event.target;
-
-    target.classList.toggle('checked');
+// Enable dragging for all list items
+document.querySelectorAll('.list-item').forEach((item) => {
+    item.setAttribute('draggable', true);
+    item.addEventListener('dragstart', handleDragStart);
+    item.addEventListener('dragend', handleDragEnd);
 });
+
+// Highlight drop targets and store dragged item
+let draggedItem = null;
+function handleDragStart(e) {
+    draggedItem = this;
+    document.querySelectorAll('.list').forEach((list) => {
+        if (list !== draggedItem.parentElement) {
+            list.classList.add('highlight');
+        }
+    });
+}
+
+// Handle drag over to allow dropping
+document.querySelectorAll('.list').forEach((list) => {
+    list.addEventListener('dragover', (e) => {
+        e.preventDefault(); // Necessary to allow dropping
+    });
+    list.addEventListener('drop', handleDrop);
+});
+
+// Handle item drop, move item, and cleanup
+function handleDrop(e) {
+    e.preventDefault();
+    if (draggedItem && this !== draggedItem.parentElement) {
+        this.appendChild(draggedItem);
+    }
+    cleanup();
+}
+
+// Cleanup after drag ends
+function handleDragEnd(e) {
+    cleanup();
+}
+
+// Remove highlights and reset dragged item
+function cleanup() {
+    document.querySelectorAll('.list').forEach((list) => {
+        list.classList.remove('highlight');
+    });
+    draggedItem = null;
+}
