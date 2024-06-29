@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,12 +8,25 @@
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
         />
+        <link rel="stylesheet" href="style.css" />
+        <script type="module" src="main.js"></script>
     </head>
     <body>
         <header>
             <h1>Drag and Drop</h1>
         </header>
-        <main></main>
+        <main class="container grid">
+            <article class="grid parent">
+                <div class="child" draggable="true">1</div>
+                <div class="child" draggable="true">2</div>
+                <div class="child" draggable="true">3</div>
+            </article>
+            <article class="grid parent">
+                <div class="child" draggable="true">1</div>
+                <div class="child" draggable="true">2</div>
+                <div class="child" draggable="true">3</div>
+            </article>
+        </main>
         <footer></footer>
     </body>
 </html>
