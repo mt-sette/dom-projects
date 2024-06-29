@@ -27,8 +27,7 @@ document.querySelectorAll('form').forEach((form) => {
 // Enable dragging for all list items
 document.querySelectorAll('.list-item').forEach((item) => {
     item.setAttribute('draggable', true);
-    item.addEventListener('dragstart', handleDragStart);
-    item.addEventListener('dragend', handleDragEnd);
+    makeItemDraggable(item);
 });
 
 // Highlight drop targets and store dragged item

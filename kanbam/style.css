@@ -13,5 +13,5 @@ li:hover {
 .list.highlight {
     background-color: #f0f0f0; 
     border: 2px dashed #666; 
-    padding: 10px;
+    padding-block: 15px;
 }
