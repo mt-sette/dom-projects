@@ -1,7 +1,6 @@
 class ListItem {
     constructor(text) {
         this.text = text;
-        // this.id = Math.random().toString(36).slice(2);
     }
 
     createItem() {
@@ -11,31 +10,22 @@ class ListItem {
     }
 }
 
-class List {
-    constructor(elementId) {
-        this.items = [];
-        this.elementId = elementId;
-    }
+const backlogForm = document.querySelector('#backlogForm');
+const backlogList = document.querySelector('#backlog-list');
 
-    addItem(item) {
-        this.items.push(item);
-    }
-}
-const list = new List('backlog');
-list.createElement();
-
-console.log(list);
-
-document.querySelector('#backlog').addEventListener('submit', function (event) {
+backlogForm.addEventListener('submit', function (event) {
     event.preventDefault();
-    const input = document.querySelector('#backlog-input');
+    const input = document.querySelector('#backlogItemInput');
     const description = input.value;
     const item = new ListItem(description).createItem();
 
-    list.addItem(item);
-
-    document.querySelector('#backlog-list').appendChild(item);
+    backlogList.appendChild(item);
     input.value = '';
+});
 
-    console.log(list);
+backlogList.addEventListener('click', function (event) {
+    console.log(event.target);
+    const target = event.target;
+
+    target.classList.toggle('checked');
 });
