@@ -22,45 +22,16 @@
                         <h2>Backlog</h2>
                     </header>
                     <main>
-                        <div class="card backlog">
-                            <ul id="backlog-list">
-                                <li>Task 1</li>
-                                <li>Task 2</li>
-                                <li>Task 3</li>
-                            </ul>
-                        </div>
-                    </main>
-                    <footer>
-                        <form id="backlog">
-                            <input
-                                type="text"
-                                name="description"
-                                id="backlog-input"
-                                placeholder="add new"
-                            />
-                        </form>
-                    </footer>
-                </section>
-                <section>
-                    <header>
-                        <h2>To Do</h2>
-                    </header>
-                    <main>
                         <div class="card">
-                            <ul>
-                                <li>Task 1</li>
-                                <li>Task 2</li>
-                                <li>Task 3</li>
+                            <ul id="backlog-list" class="list">
+                                <li class="list-item">Task 1</li>
                             </ul>
                         </div>
                     </main>
                     <footer>
-                        <input
-                            type="text"
-                            name="todo"
-                            id="todo"
-                            placeholder="add new"
-                        />
+                        <form data-target-list="backlog-list" id="backlogForm">
+                            <input type="text" placeholder="Add new item" />
+                        </form>
                     </footer>
                 </section>
                 <section>
@@ -69,22 +40,16 @@
                     </header>
                     <main>
                         <div class="card">
-                            <ul>
-                                <li>Task 1</li>
-                                <li>Task 2</li>
-                                <li>Task 3</li>
+                            <ul id="doing-list" class="list">
+                                <li class="list-item list-item">Task 1</li>
                             </ul>
                         </div>
                     </main>
-
-                    <form>
-                        <input
-                            type="text"
-                            name="doing"
-                            id="doing"
-                            placeholder="add new"
-                        />
-                    </form>
+                    <footer>
+                        <form data-target-list="doing-list" id="backlogForm">
+                            <input type="text" placeholder="Add new item" />
+                        </form>
+                    </footer>
                 </section>
                 <section>
                     <header>
@@ -92,22 +57,16 @@
                     </header>
                     <main>
                         <div class="card">
-                            <ul>
-                                <li>Task 1</li>
-                                <li>Task 2</li>
-                                <li>Task 3</li>
+                            <ul id="done-list" class="list">
+                                <li class="list-item">Task 1</li>
                             </ul>
                         </div>
                     </main>
-
-                    <form>
-                        <input
-                            type="text"
-                            name="done"
-                            id="done"
-                            placeholder="add new"
-                        />
-                    </form>
+                    <footer>
+                        <form data-target-list="done-list" id="backlogForm">
+                            <input type="text" placeholder="Add new item" />
+                        </form>
+                    </footer>
                 </section>
             </div>
         </main>
