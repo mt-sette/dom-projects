@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Music Player</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <script type="module" src="script.js"></script>
+    </head>
+    <body>
+        <header>
+            <h1>Music Player</h1>
+        </header>
+        <main class="container">
+            <section class="player">
+                <header class="play-control">
+                    <button id="prev" aria-label="Previous">⏮️</button>
+                    <button id="play" aria-label="Play">▶️</button>
+                    <button id="pause" aria-label="Pause">⏸️</button>
+                    <button id="next" aria-label="Next">⏭️</button>
+                </header>
+                <article>
+                    <header>
+                        <img id="cover" src="" alt="Album Cover" />
+                    </header>
+                    <div id="title" aria-label="Song Title">Song Title</div>
+                    <div id="artist" aria-label="Artist Name">Artist Name</div>
+                </article>
+                <audio id="audio" src=""></audio>
+            </section>
+        </main>
+    </body>
+</html>
